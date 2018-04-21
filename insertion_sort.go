@@ -16,7 +16,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	a := make([]int, LENGTH)
 
-	for i := 0; i < LENGTH; i++ {			// populate slice with random values
+	for i := 0; i < LENGTH; i++ {			// initialize slice with random values
 		a[i] = rand.Intn(MAX_RAND)
 	}
 
@@ -25,28 +25,23 @@ func main() {
 	fmt.Println("---------------------------------------------------")
 
 	start := time.Now()
-	insertion_sort(a)
+	insertionSort(a)
 	elapsed := time.Since(start)
 
 	fmt.Println(a)
 	fmt.Printf("Execution time: %s\n", elapsed)
 }
 
-func insertion_sort(a []int) {
+func insertionSort(a []int) {
 
-	for i, elem := range a {				// loop through every element in array
+	for i, elem := range a[1:] {			// loop through every element in array, skip first element
 
-		if i == 0 {
-			continue						// skip first element (A[0 - 0] already sorted)
+		for i >= 0 && a[i] > elem {			// shift (sorted) array elements to find position to insert key
+
+			a[i+1] = a[i]					// a[i+1] is valid (no index out of bounds), since max i is 98 (max index of _sliced_ array a)
+			i--
 		}
 
-		j := i - 1
-		for j >= 0 && a[j] > elem {
-
-			a[j+1] = a[j]					// shift (sorted) array elements to find position to insert key
-			j--
-		}
-
-		a[j+1] = elem 						// insert element
+		a[i+1] = elem 						// insert element
 	}
 }
