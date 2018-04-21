@@ -1,15 +1,14 @@
 package algos
 
 import (
-	"testing"
 	"github.com/moritzschramm/sorting-algos-go/generator"
+	"testing"
 )
 
 const (
 	LENGTH = 1e4
-	RAND = 1e5
+	RAND   = 1e5
 )
-
 
 func BenchmarkInsertionSort(b *testing.B) {
 
@@ -20,11 +19,11 @@ func BenchmarkInsertionSort(b *testing.B) {
 	}
 
 	b.ResetTimer()
-	
-    for i := 0; i < b.N; i++ {
 
-        InsertionSort(a[i])
-    }
+	for i := 0; i < b.N; i++ {
+
+		InsertionSort(a[i])
+	}
 }
 
 func BenchmarkMergeSort(b *testing.B) {
@@ -36,9 +35,9 @@ func BenchmarkMergeSort(b *testing.B) {
 	}
 
 	b.ResetTimer()
-	
-    for i := 0; i < b.N; i++ {
 
-        MergeSort(a[i])
-    }
+	for i := 0; i < b.N; i++ {
+
+		MergeSort(a[i])
+	}
 }
