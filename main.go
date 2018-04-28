@@ -46,6 +46,8 @@ func getSortingAlgorithmByName(name string) func([]int) {
 		return algos.InsertionSort
 	case "merge-sort":
 		return algos.MergeSort
+	case "quicksort":
+		return algos.QuickSort
 	default:
 		fmt.Println("Unknown algorithm")
 		os.Exit(1)

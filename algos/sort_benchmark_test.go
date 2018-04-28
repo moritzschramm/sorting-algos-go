@@ -41,3 +41,36 @@ func BenchmarkMergeSort(b *testing.B) {
 		MergeSort(a[i])
 	}
 }
+
+
+func BenchmarkQuickSort(b *testing.B) {
+
+	a := make([][]int, b.N)
+
+	for i := 0; i < b.N; i++ {
+		a[i] = generator.Generate(LENGTH, RAND)
+	}
+
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+
+		QuickSort(a[i])
+	}
+}
+
+func BenchmarkQuickSortRand(b *testing.B) {
+
+	a := make([][]int, b.N)
+
+	for i := 0; i < b.N; i++ {
+		a[i] = generator.Generate(LENGTH, RAND)
+	}
+
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+
+		QuickSortRand(a[i])
+	}
+}

@@ -45,6 +45,40 @@ func TestMergeSort(t *testing.T) {
 	}
 }
 
+func TestQuickSort(t *testing.T) {
+
+	for i := 0; i < 10; i++ {
+
+		a := generator.Generate(TESTING_LENGTH, TESTING_RAND)
+		expected := make([]int, len(a))
+		copy(expected, a)
+		sort.Ints(expected)
+		QuickSort(a)
+
+		if !slicesEqual(a, expected) {
+
+			t.Errorf("Quicksort: expected %v, actual: %v", expected, a)
+		}
+	}
+}
+
+func TestQuickSortRand(t *testing.T) {
+
+	for i := 0; i < 10; i++ {
+
+		a := generator.Generate(TESTING_LENGTH, TESTING_RAND)
+		expected := make([]int, len(a))
+		copy(expected, a)
+		sort.Ints(expected)
+		QuickSortRand(a)
+
+		if !slicesEqual(a, expected) {
+
+			t.Errorf("Quicksort (with random pivot): expected %v, actual: %v", expected, a)
+		}
+	}
+}
+
 func slicesEqual(a, b []int) bool {
 	if len(a) != len(b) {
 		return false
