@@ -3,6 +3,9 @@
 Currently implemented:
 1. Insertion sort
 2. Merge sort
+3. Quicksort (with and without random pivot)
+4. Heapsort
+5. (Timsort, not working)
 
 # Usage
 
