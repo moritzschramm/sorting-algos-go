@@ -2,11 +2,20 @@ package algos
 
 func InsertionSort(a []int) {
 
-	for i, elem := range a[1:] { // loop through every element in array, skip first element
+	insertionSort(a, 0, len(a))
+}
 
-		for i >= 0 && a[i] > elem { // shift (sorted) array elements to find position to insert key
+func insertionSort(a []int, left, right int) {
 
-			a[i+1] = a[i] // a[i+1] is valid (no index out of bounds), since max i is 98 (max index of _sliced_ array a)
+	start := left + 1	// increment left boundary by one since the first element can't be moved further to left
+
+	for index, elem := range a[start:right] {
+
+		i := left + index	// get the correct offset, index starts at 0...(right-start)
+
+		for i >= left && a[i] > elem && i+1 < right { // shift (sorted) array elements to find position to insert key
+
+			a[i+1] = a[i]
 			i--
 		}
 
