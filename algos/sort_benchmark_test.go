@@ -74,3 +74,19 @@ func BenchmarkQuickSortRand(b *testing.B) {
 		QuickSortRand(a[i])
 	}
 }
+
+func BenchmarkHeapSort(b *testing.B) {
+
+	a := make([][]int, b.N)
+
+	for i := 0; i < b.N; i++ {
+		a[i] = generator.Generate(LENGTH, RAND)
+	}
+
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+
+		HeapSort(a[i])
+	}
+}

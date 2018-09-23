@@ -36,6 +36,9 @@ func listAlgos() {
 
 	fmt.Println("insertion-sort")
 	fmt.Println("merge-sort")
+	fmt.Println("quicksort")
+	fmt.Println("heapsort")
+	//fmt.Println("timsort")
 }
 
 func getSortingAlgorithmByName(name string) func([]int) {
@@ -48,6 +51,10 @@ func getSortingAlgorithmByName(name string) func([]int) {
 		return algos.MergeSort
 	case "quicksort":
 		return algos.QuickSort
+	case "heapsort":
+		return algos.HeapSort
+	//case "timsort":
+	//	return algos.TimSort
 	default:
 		fmt.Println("Unknown algorithm")
 		os.Exit(1)
